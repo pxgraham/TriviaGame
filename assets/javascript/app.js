@@ -1,20 +1,19 @@
 $(document).ready(function () {
-    var starting = true;
-    var right = 0;
-    var wrong = 0;
-    var btnId;
-    var time = 15;
-    var intervalId;
-    var timeoutId;
-    var page = 0;
-    var answerBtns = [];
-    var question = $('#question');
-    var subQuestion = $('#subQuestion');
-    var completion = $('#completion');
-    var good = $('#resGood');
-    var bad = $('#resBad');
-    var answers = $('#answers');
-    var answerText = {
+    var right = 0;  //correct guesses
+    var wrong = 0;  //incorrect guesses
+    var btnId;      //stores what will be the buttons ID
+    var time = 15;  //time for each question
+    var intervalId; //interval needs to be identified and reset
+    var timeoutId;  //same with timeout
+    var page = 0;   //the current page your on.
+    var answerBtns = [];    //an array to update multiple buttons at once
+    var question = $('#question');  //the question you'll be asked
+    var subQuestion = $('#subQuestion');    //subquestion content
+    var completion = $('#completion');  //how many questions youve answered
+    var good = $('#resGood');   //if you answer question good this will populate
+    var bad = $('#resBad');     //if you answer bad this will populate
+    var answers = $('#answers');    //this is where the answer btns are
+    var answerText = {  //stores all of the possbile answers for each question
         q1: [
             'Throw Banana at Criminal',
             'Throw gun at Criminal',
@@ -76,7 +75,7 @@ $(document).ready(function () {
             'Close Your eyes and hope for the best'
         ],
     };
-    $('#start').click(function () {
+    $('#start').click(function () { //start is also used as restart at end of the game
         right = 0;
         wrong = 0;
         btnId;
@@ -90,7 +89,7 @@ $(document).ready(function () {
         next();
     });
 
-    $('.aBtn').click(function (e) {
+    $('.aBtn').click(function (e) {         //when one of the buttons is clicked, this function decides whether it was right or wrong and proceeds accordingly
         completion.text(page * 10 + '%');
         if (page === 1) {
             btnId = $(e.target).attr('id');
@@ -223,7 +222,7 @@ $(document).ready(function () {
         };
     });
 
-    function pause() {
+    function pause() {                  //this is the pause before you get to the next question
         for(let x = 0; x < 4; x++) {
             $('#aBtn' + x).prop('disabled', 'true');
         }
@@ -231,7 +230,7 @@ $(document).ready(function () {
         timeoutId = setTimeout(next, 3500);
     };
 
-    function next() {
+    function next() {               //the interval is set in next. this is also where the next questions displays to the page
         good.text('');
         bad.text('');
         clearInterval(intervalId);
@@ -336,7 +335,7 @@ $(document).ready(function () {
             $('#time').text('0:00');
         }
     };
-    function timer() {
+    function timer() {      //timer keeps track of time, and gives you an incorrect guess if you run out
         time--;
         if (time === 0) {
             wrong++;
