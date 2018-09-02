@@ -1,0 +1,61 @@
+.b {
+    border: 1px solid black;
+}
+.c {
+    text-align: center;
+}
+.l {
+    text-align: left;
+}
+.r {
+    text-align: right;
+}
+.big {
+    font-size: 30px;
+}
+.pushTop {
+    margin-top: 120px;
+}
+.pushBot {
+    margin-bottom: 30px;
+}
+.footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: black;
+    text-align: center;
+    width: 100%;    
+}
+.nav {
+    border: 2px solid white;
+}
+.aBtn {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+#quiz {
+    display: none;
+}
+#resBad {
+    font-size: 20px;
+    font-weight: bolder;
+    color: red;
+}
+#resGood {
+    font-weight: bolder;
+    font-size: 20px;
+    color: lime;
+}
+#end {
+    display: none;
+}
+.stext {
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+    color: white;
+    font-weight: bolder;
+}
+.container {
+    background-image: url("assets/images/jail.png");
+}
