@@ -83,6 +83,7 @@ $(document).ready(function () {
         page = 1;
         $('#main').css('display', 'none');
         $('#quiz').css('display', 'block');
+        completion.text('0%');
         for (var i = 0; i < 4; i++) {
             $('#aBtn' + i).removeAttr('disabled');
         };
